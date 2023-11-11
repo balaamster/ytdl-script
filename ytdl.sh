@@ -69,7 +69,7 @@ function sel_fmt () {
 
 function normalize_url {
     [ $# -ge 1 ] || error 'There no url to process'
-    echo "$1" | egrep -q '^(http.?://)?www.youtube.com/watch\?v=.{11}' || error "Wrong URL:\n$1"
+    echo "$1" | egrep -q '^(http.?://)?www.youtube.com/(watch\?v=.{11}|shorts/.{11})' || error "Wrong URL:\n$1"
     echo "${1%%&*}"
 }
 
